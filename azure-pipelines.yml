@@ -20,3 +20,9 @@ steps:
 
 - script: npm run test:chrome:headless
   displayName: 'Run TestCafe tests on headless Chrome'
+  env:
+    TEAMYAP_ADMIN_EMAIL: $(TEAMYAP_ADMIN_EMAIL)
+    TEAMYAP_ADMIN_PASSWORD: $(TEAMYAP_ADMIN_PASSWORD)
+    TEAMYAP_ADMIN_NAME: $(TEAMYAP_ADMIN_NAME)
+    TEAMYAP_USER_EMAIL: $(TEAMYAP_USER_EMAIL)
+    TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
