@@ -1,6 +1,6 @@
-# Multi-browser testing with TestCafe and CircleCI
+# Cross Browser Testing With TestCafe and Azure DevOps
 
-This repo contains an example for running end-to-end tests on multiple browsers using [TestCafe](https://testcafe.io/) and [CircleCI](https://circleci.com/).
+This repo contains an example for running end-to-end tests on multiple browsers using [TestCafe](https://testcafe.io/) and [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/).
 
 ## End-to-End Testing with TestCafe
 
