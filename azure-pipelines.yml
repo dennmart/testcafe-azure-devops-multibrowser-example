@@ -1,11 +1,10 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
-
 jobs:
   - job: chrome
+    pool:
+      vmImage: ubuntu-latest
     steps:
     - template: azure/node-setup.yml
 
@@ -19,6 +18,8 @@ jobs:
         TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
 
   - job: firefox
+    pool:
+      vmImage: ubuntu-latest
     dependsOn: chrome
     steps:
     - template: azure/node-setup.yml
