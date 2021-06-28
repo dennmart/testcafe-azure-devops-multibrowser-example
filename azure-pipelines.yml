@@ -23,3 +23,23 @@ jobs:
         TEAMYAP_ADMIN_NAME: $(TEAMYAP_ADMIN_NAME)
         TEAMYAP_USER_EMAIL: $(TEAMYAP_USER_EMAIL)
         TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
+
+  - job: firefox
+    dependsOn: chrome
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '12.x'
+      displayName: 'Install Node.js 12.x'
+
+    - script: npm install
+      displayName: 'Install TestCafe'
+
+    - script: npm run test:firefox:headless
+      displayName: 'Run TestCafe tests on headless Firefox'
+      env:
+        TEAMYAP_ADMIN_EMAIL: $(TEAMYAP_ADMIN_EMAIL)
+        TEAMYAP_ADMIN_PASSWORD: $(TEAMYAP_ADMIN_PASSWORD)
+        TEAMYAP_ADMIN_NAME: $(TEAMYAP_ADMIN_NAME)
+        TEAMYAP_USER_EMAIL: $(TEAMYAP_USER_EMAIL)
+        TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
