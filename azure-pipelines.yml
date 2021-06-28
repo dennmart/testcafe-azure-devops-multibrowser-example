@@ -32,3 +32,19 @@ jobs:
         TEAMYAP_ADMIN_NAME: $(TEAMYAP_ADMIN_NAME)
         TEAMYAP_USER_EMAIL: $(TEAMYAP_USER_EMAIL)
         TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
+
+  - job: edge
+    pool:
+      vmImage: windows-latest
+    dependsOn: firefox
+    steps:
+    - template: azure/node-setup.yml
+
+    - script: npm run test:edge:headless
+      displayName: 'Run TestCafe tests on headless Edge'
+      env:
+        TEAMYAP_ADMIN_EMAIL: $(TEAMYAP_ADMIN_EMAIL)
+        TEAMYAP_ADMIN_PASSWORD: $(TEAMYAP_ADMIN_PASSWORD)
+        TEAMYAP_ADMIN_NAME: $(TEAMYAP_ADMIN_NAME)
+        TEAMYAP_USER_EMAIL: $(TEAMYAP_USER_EMAIL)
+        TEAMYAP_USER_PASSWORD: $(TEAMYAP_USER_PASSWORD)
