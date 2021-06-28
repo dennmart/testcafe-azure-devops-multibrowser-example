@@ -7,13 +7,7 @@ pool:
 jobs:
   - job: chrome
     steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '12.x'
-      displayName: 'Install Node.js 12.x'
-
-    - script: npm install
-      displayName: 'Install TestCafe'
+    - template: azure/node-setup.yml
 
     - script: npm run test:chrome:headless
       displayName: 'Run TestCafe tests on headless Chrome'
@@ -27,13 +21,7 @@ jobs:
   - job: firefox
     dependsOn: chrome
     steps:
-    - task: NodeTool@0
-      inputs:
-        versionSpec: '12.x'
-      displayName: 'Install Node.js 12.x'
-
-    - script: npm install
-      displayName: 'Install TestCafe'
+    - template: azure/node-setup.yml
 
     - script: npm run test:firefox:headless
       displayName: 'Run TestCafe tests on headless Firefox'
